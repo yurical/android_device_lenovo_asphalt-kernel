@@ -9,8 +9,7 @@ set -e
 
 ### Setup
 DUMP=
-MY_DIR="${BASH_SOURCE%/*}"
-SRC_ROOT="${MY_DIR}/../../.."
+MY_DIR="$(dirname "$(readlink -f -- "${0}" 2>/dev/null)")"
 TMP_DIR=$(mktemp -d)
 EXTRACT_KERNEL=true
 declare -a MODULE_FOLDERS=("vendor_dlkm" "vendor_ramdisk")
@@ -41,10 +40,13 @@ fi
 
 echo "Extracting files from ${DUMP}:"
 
+curl -sSL "https://raw.githubusercontent.com/LineageOS/android_system_tools_mkbootimg/caa73eb3985a3d574b0513555f227a6cc8fe2b05/unpack_bootimg.py" > ${TMP_DIR}/unpack_bootimg.py
+chmod a+x "${TMP_DIR}/unpack_bootimg.py"
+
 ### Kernel
 if ${EXTRACT_KERNEL}; then
     echo "Extracting boot image.."
-    ${SRC_ROOT}/system/tools/mkbootimg/unpack_bootimg.py \
+    "${TMP_DIR}/unpack_bootimg.py" \
         --boot_img "${DUMP}/boot.img" \
         --out "${TMP_DIR}/boot.out" > /dev/null
     cp -f "${TMP_DIR}/boot.out/kernel" ${MY_DIR}/Image
@@ -57,11 +59,12 @@ rm -rf "${MY_DIR}/dtbs"
 mkdir "${MY_DIR}/dtbs"
 
 echo "Extracting vendor_boot image..."
-${SRC_ROOT}/system/tools/mkbootimg/unpack_bootimg.py \
+"${TMP_DIR}/unpack_bootimg.py" \
     --boot_img "${DUMP}/vendor_boot.img" \
     --out "${TMP_DIR}/vendor_boot.out" > /dev/null
 
 curl -sSL "https://raw.githubusercontent.com/PabloCastellano/extract-dtb/master/extract_dtb/extract_dtb.py" > ${TMP_DIR}/extract_dtb.py
+chmod a+x "${TMP_DIR}/extract_dtb.py"
 
 # Copy
 python3 "${TMP_DIR}/extract_dtb.py" "${TMP_DIR}/vendor_boot.out/dtb" -o "${TMP_DIR}/dtbs" > /dev/null
