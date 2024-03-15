@@ -178,8 +178,6 @@ alias amba:d???BB961 coresight_tmc
 alias amba:d???BB9E8 coresight_tmc
 alias amba:d???BB9E9 coresight_tmc
 alias amba:d???BB9EA coresight_tmc
-alias of:N*T*Cqcom,spmi-glink-debug spmi_glink_debug
-alias of:N*T*Cqcom,spmi-glink-debugC* spmi_glink_debug
 alias of:N*T*Cqcom,usb-ssphy-qmp phy_msm_ssusb_qmp
 alias of:N*T*Cqcom,usb-ssphy-qmpC* phy_msm_ssusb_qmp
 alias of:N*T*Cqcom,usb-ssphy-qmp-v1 phy_msm_ssusb_qmp
@@ -457,9 +455,6 @@ alias platform:spmi-temp-alarm qcom_spmi_temp_alarm
 alias of:N*T*Cqcom,spmi-temp-alarm qcom_spmi_temp_alarm
 alias of:N*T*Cqcom,spmi-temp-alarmC* qcom_spmi_temp_alarm
 alias usbfunc:diag usb_f_diag
-alias platform:spmi_pmic_arb_debug spmi_pmic_arb_debug
-alias of:N*T*Cqcom,spmi-pmic-arb-debug spmi_pmic_arb_debug
-alias of:N*T*Cqcom,spmi-pmic-arb-debugC* spmi_pmic_arb_debug
 alias of:N*T*Cqcom,lpass-cdc lpass_cdc_dlkm
 alias of:N*T*Cqcom,lpass-cdcC* lpass_cdc_dlkm
 alias of:N*T*Cqcom,lpass-cdc-clk-rsc-mngr lpass_cdc_dlkm

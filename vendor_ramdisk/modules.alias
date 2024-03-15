@@ -214,8 +214,6 @@ alias amba:d???BB961 coresight_tmc
 alias amba:d???BB9E8 coresight_tmc
 alias amba:d???BB9E9 coresight_tmc
 alias amba:d???BB9EA coresight_tmc
-alias of:N*T*Cqcom,spmi-glink-debug spmi_glink_debug
-alias of:N*T*Cqcom,spmi-glink-debugC* spmi_glink_debug
 alias tty:msm_geni_geni_serial msm_geni_serial
 alias of:N*T*Cqcom,usb-ssphy-qmp phy_msm_ssusb_qmp
 alias of:N*T*Cqcom,usb-ssphy-qmpC* phy_msm_ssusb_qmp
@@ -367,9 +365,6 @@ alias of:N*T*Cqcom,waipio-pcie_anoc qnoc_waipio
 alias of:N*T*Cqcom,waipio-pcie_anocC* qnoc_waipio
 alias of:N*T*Cqcom,waipio-system_noc qnoc_waipio
 alias of:N*T*Cqcom,waipio-system_nocC* qnoc_waipio
-alias platform:spmi_pmic_arb_debug spmi_pmic_arb_debug
-alias of:N*T*Cqcom,spmi-pmic-arb-debug spmi_pmic_arb_debug
-alias of:N*T*Cqcom,spmi-pmic-arb-debugC* spmi_pmic_arb_debug
 alias of:N*T*Cqcom,diwali-dispcc dispcc_diwali
 alias of:N*T*Cqcom,diwali-dispccC* dispcc_diwali
 alias of:N*T*Cqcom,bcm-voter icc_bcm_voter
